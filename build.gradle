@@ -1,0 +1,78 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+    id 'java'
+}
+
+// Set project version using a property, defaulting to 'unspecified' if not found
+version = project.properties[project.name + '.version'] ?: 'undefined'
+group = 'io.github.mcengine'
+
+ext {
+    git_user_name = System.getenv('GIT_USER_NAME') ?: 'null'
+    git_user_token = System.getenv('GIT_USER_TOKEN') ?: 'null'
+
+    /* Project Information */
+    jarName = System.getenv('PROJECT_NAME') ?: 'Example-AddOn'
+}
+
+allprojects {
+    group = 'io.github.mcengine'
+
+    apply plugin: 'java'
+    apply plugin: 'com.github.johnrengelman.shadow'
+
+    repositories {
+        mavenCentral()
+        mavenLocal()
+
+        maven {
+            url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots'
+            content {
+                includeGroup 'org.bukkit'
+                includeGroup 'org.spigotmc'
+            }
+        }
+
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+        maven { url 'https://oss.sonatype.org/content/repositories/central' }
+
+        maven {
+            url = uri('https://maven.pkg.github.com/MCEngine/artificialintelligence')
+            credentials {
+                username = System.getenv('GIT_USER_NAME') ?: 'null'
+                password = System.getenv('GIT_USER_TOKEN') ?: 'null'
+            }
+        }
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'com.github.johnrengelman.shadow'
+
+    version = project.properties[project.name + '.version'] ?: 'undefined'
+
+    tasks.named('jar').configure {
+        enabled = false
+    }
+
+    tasks.named('shadowJar').configure {
+        archiveClassifier = null
+    }
+}
+
+dependencies {
+    implementation project(path: ":artificialintelligence", configuration: 'shadow')
+}
+
+shadowJar {
+    version = version
+    archiveClassifier = null
+    archiveBaseName = project.jarName
+}
+
+tasks.named('jar').configure {
+    enabled = false
+}
+
+build.dependsOn(shadowJar)
