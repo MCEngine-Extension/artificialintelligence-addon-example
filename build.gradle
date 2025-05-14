@@ -15,54 +15,34 @@ ext {
     jarName = System.getenv('PROJECT_NAME') ?: 'Example-AddOn'
 }
 
-allprojects {
-    group = 'io.github.mcengine'
+repositories {
+    mavenCentral()
+    mavenLocal()
 
-    apply plugin: 'java'
-    apply plugin: 'com.github.johnrengelman.shadow'
-
-    repositories {
-        mavenCentral()
-        mavenLocal()
-
-        maven {
-            url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots'
-            content {
-                includeGroup 'org.bukkit'
-                includeGroup 'org.spigotmc'
-            }
-        }
-
-        maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
-        maven { url 'https://oss.sonatype.org/content/repositories/central' }
-
-        maven {
-            url = uri('https://maven.pkg.github.com/MCEngine/artificialintelligence')
-            credentials {
-                username = System.getenv('GIT_USER_NAME') ?: 'null'
-                password = System.getenv('GIT_USER_TOKEN') ?: 'null'
-            }
+    maven {
+        url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots'
+        content {
+            includeGroup 'org.bukkit'
+            includeGroup 'org.spigotmc'
         }
     }
-}
 
-subprojects {
-    apply plugin: 'java'
-    apply plugin: 'com.github.johnrengelman.shadow'
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+    maven { url 'https://oss.sonatype.org/content/repositories/central' }
 
-    version = project.properties[project.name + '.version'] ?: 'undefined'
-
-    tasks.named('jar').configure {
-        enabled = false
-    }
-
-    tasks.named('shadowJar').configure {
-        archiveClassifier = null
+    maven {
+        url = uri('https://maven.pkg.github.com/MCEngine/artificialintelligence')
+        credentials {
+            username = System.getenv('GIT_USER_NAME') ?: 'null'
+            password = System.getenv('GIT_USER_TOKEN') ?: 'null'
+        }
     }
 }
 
 dependencies {
-    implementation project(path: ":artificialintelligence", configuration: 'shadow')
+    compileOnly 'io.github.mcengine:mcengine-api:1.0.0-1-SNAPSHOT'
+
+    compileOnly 'org.spigotmc:spigot-api:1.21.5-R0.1-SNAPSHOT'
 }
 
 shadowJar {

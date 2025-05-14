@@ -1,7 +1,7 @@
 package io.github.mcengine.addon.artificialintelligence.example;
 
-import io.github.mcengine.api.artificialintelligence.addon.IMCEngineArtificialIntelligenceAddOn;
-import io.github.mcengine.api.artificialintelligence.addon.MCEngineArtificialIntelligenceAddOnLogger;
+import io.github.mcengine.api.mcengine.addon.IMCEngineAddOn;
+import io.github.mcengine.api.mcengine.addon.MCEngineAddOnLogger;
 import io.github.mcengine.addon.artificialintelligence.example.command.AddOnCommand;
 import io.github.mcengine.addon.artificialintelligence.example.listener.AddOnListener;
 import io.github.mcengine.addon.artificialintelligence.example.tabcompleter.AddOnTabCompleter;
@@ -18,10 +18,10 @@ import java.util.List;
 /**
  * Example AddOn for MCEngineArtificialIntelligence.
  */
-public class ExampleAddOn implements IMCEngineArtificialIntelligenceAddOn {
+public class ExampleAddOn implements IMCEngineAddOn {
     @Override
     public void onLoad(Plugin plugin) {
-        MCEngineArtificialIntelligenceAddOnLogger logger = new MCEngineArtificialIntelligenceAddOnLogger(plugin, "Example-AddOn");
+        MCEngineAddOnLogger logger = new MCEngineAddOnLogger(plugin, "Example-AddOn");
 
         try {
             // Register listener
