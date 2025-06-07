@@ -8,8 +8,8 @@ version = project.properties[project.name + '.version'] ?: 'undefined'
 group = 'io.github.mcengine'
 
 ext {
-    git_user_name = System.getenv('GIT_USER_NAME') ?: 'null'
-    git_user_token = System.getenv('GIT_USER_TOKEN') ?: 'null'
+    user_git_name = System.getenv('USER_GIT_NAME')
+    user_github_token = System.getenv('USER_GITHUB_TOKEN')
 
     /* Project Information */
     jarName = System.getenv('PROJECT_NAME') ?: 'Example-AddOn'
@@ -31,16 +31,16 @@ repositories {
     maven { url 'https://oss.sonatype.org/content/repositories/central' }
 
     maven {
-        url = uri('https://maven.pkg.github.com/MCEngine/artificialintelligence')
+        url = uri('https://maven.pkg.github.com/MCEngine/mcengine-api')
         credentials {
-            username = System.getenv('GIT_USER_NAME') ?: 'null'
-            password = System.getenv('GIT_USER_TOKEN') ?: 'null'
+            username = project.user_git_name
+            password = project.user_github_token
         }
     }
 }
 
 dependencies {
-    compileOnly 'io.github.mcengine:mcengine-api:1.0.0-1-SNAPSHOT'
+    compileOnly 'io.github.mcengine:mcengine-api:1.0.0-10-SNAPSHOT'
 
     compileOnly 'org.spigotmc:spigot-api:1.21.5-R0.1-SNAPSHOT'
 }
