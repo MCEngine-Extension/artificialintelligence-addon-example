@@ -1,5 +1,6 @@
 package io.github.mcengine.addon.artificialintelligence.example;
 
+import io.github.mcengine.api.mcengine.MCEngineApi;
 import io.github.mcengine.api.mcengine.addon.IMCEngineAddOn;
 import io.github.mcengine.api.mcengine.addon.MCEngineAddOnLogger;
 import io.github.mcengine.addon.example.command.AddOnCommand;
@@ -59,6 +60,6 @@ public class ExampleAddOn implements IMCEngineAddOn {
             logger.warning("Failed to initialize Example-AddOn: " + e.getMessage());
             e.printStackTrace();
         }
-        MCEngineApi.checkUpdate(plugin, "github", "MCEngine-AddOn", "example", getConfig().getString("github.token", "null"));
+        MCEngineApi.checkUpdate(plugin, "github", "MCEngine-AddOn", "example", plugin.getConfig().getString("github.token", "null"));
     }
 }
