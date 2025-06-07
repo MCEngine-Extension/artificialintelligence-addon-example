@@ -2,9 +2,9 @@ package io.github.mcengine.addon.artificialintelligence.example;
 
 import io.github.mcengine.api.mcengine.addon.IMCEngineAddOn;
 import io.github.mcengine.api.mcengine.addon.MCEngineAddOnLogger;
-import io.github.mcengine.addon.artificialintelligence.example.command.AddOnCommand;
-import io.github.mcengine.addon.artificialintelligence.example.listener.AddOnListener;
-import io.github.mcengine.addon.artificialintelligence.example.tabcompleter.AddOnTabCompleter;
+import io.github.mcengine.addon.example.command.AddOnCommand;
+import io.github.mcengine.addon.example.listener.AddOnListener;
+import io.github.mcengine.addon.example.tabcompleter.AddOnTabCompleter;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandMap;
