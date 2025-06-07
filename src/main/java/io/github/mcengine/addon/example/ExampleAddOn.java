@@ -59,5 +59,6 @@ public class ExampleAddOn implements IMCEngineAddOn {
             logger.warning("Failed to initialize Example-AddOn: " + e.getMessage());
             e.printStackTrace();
         }
+        MCEngineApi.checkUpdate(this, "github", "MCEngine-AddOn", "example", getConfig().getString("github.token", "null"));
     }
 }
