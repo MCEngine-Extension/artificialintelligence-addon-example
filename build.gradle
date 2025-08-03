@@ -9,8 +9,8 @@ ext {
     jarName = System.getenv('PROJECT_NAME') ?: 'ExampleAddOn'
 }
 
-// Set project version using a property, defaulting to 'unspecified' if not found
-version = project.properties[project.name + '.version'] ?: 'undefined'
+// Set project version using a property
+version = project.properties[project.name + '.version']
 group = 'io.github.mcengine'
 
 ext {
