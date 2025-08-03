@@ -33,7 +33,7 @@ public class ExampleAddOn implements IMCEngineArtificialIntelligenceAddOn {
      */
     @Override
     public void onLoad(Plugin plugin) {
-        MCEngineExtensionLogger logger = new MCEngineExtensionLogger(plugin, "AddOn", "ExampleAddOn");
+        MCEngineExtensionLogger logger = new MCEngineExtensionLogger(plugin, "AddOn", "ArtificialIntelligenceExampleAddon");
 
         try {
             // Register event listener
@@ -98,7 +98,7 @@ public class ExampleAddOn implements IMCEngineArtificialIntelligenceAddOn {
 
         // Check for updates
         MCEngineCoreApi.checkUpdate(plugin, logger.getLogger(),
-            "github", "MCEngine-AddOn", "example",
+            "github", "MCEngine-Extension", "artificialintelligence-addon-example",
             plugin.getConfig().getString("github.token", "null"));
     }
 
@@ -109,6 +109,6 @@ public class ExampleAddOn implements IMCEngineArtificialIntelligenceAddOn {
 
     @Override
     public void setId(String id) {
-        MCEngineCoreApi.setId("example-addon");
+        MCEngineCoreApi.setId("artificialintelligence-example-addon");
     }
 }
