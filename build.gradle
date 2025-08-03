@@ -21,35 +21,42 @@ ext {
     jarName = System.getenv('PROJECT_NAME') ?: 'Example-AddOn'
 }
 
-repositories {
-    mavenCentral()
-    mavenLocal()
+allprojects {
+    group = 'io.github.mcengine'
 
-    maven {
-        url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots'
-        content {
-            includeGroup 'org.bukkit'
-            includeGroup 'org.spigotmc'
-        }
-    }
+    apply plugin: 'java'
+    apply plugin: 'com.gradleup.shadow'
 
-    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
-    maven { url 'https://oss.sonatype.org/content/repositories/central' }
+    repositories {
+        mavenCentral()
+        mavenLocal()
 
-    ext.configureGitHubRepo = { repoName, repoUrl ->
         maven {
-            name = repoName
-            url = uri(repoUrl)
-            credentials {
-                username = project.user_git_name
-                password = project.user_github_token ?: project.repository_token ?: project.organization_token
+            url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots'
+            content {
+                includeGroup 'org.bukkit'
+                includeGroup 'org.spigotmc'
             }
         }
-    }
 
-    configureGitHubRepo('MCEngine Core API', 'https://maven.pkg.github.com/MCEngine-API/core')
-    configureGitHubRepo('MCEngine Artificialintelligence API', 'https://maven.pkg.github.com/MCEngine-API/artificialintelligence')
-    configureGitHubRepo('MCEngine Artificialintelligence Common', 'https://maven.pkg.github.com/MCEngine-Common/artificialintelligence')
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+        maven { url 'https://oss.sonatype.org/content/repositories/central' }
+
+        ext.configureGitHubRepo = { repoName, repoUrl ->
+            maven {
+                name = repoName
+                url = uri(repoUrl)
+                credentials {
+                    username = project.user_git_name
+                    password = project.user_github_token ?: project.repository_token ?: project.organization_token
+                }
+            }
+        }
+
+        configureGitHubRepo('MCEngine Core API', 'https://maven.pkg.github.com/MCEngine-API/core')
+        configureGitHubRepo('MCEngine Artificialintelligence Api', 'https://maven.pkg.github.com-API/MCEngine/artificialintelligence')
+        configureGitHubRepo('MCEngine Artificialintelligence Common', 'https://maven.pkg.github.com/MCEngine-Common/artificialintelligence')
+    }
 }
 
 dependencies {
