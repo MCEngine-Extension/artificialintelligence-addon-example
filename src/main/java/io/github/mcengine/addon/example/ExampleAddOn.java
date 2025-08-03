@@ -1,4 +1,4 @@
-package io.github.mcengine.addon.artificialintelligence.example;
+package io.github.mcengine.addon.example;
 
 import io.github.mcengine.api.core.MCEngineCoreApi;
 import io.github.mcengine.api.core.extension.logger.MCEngineExtensionLogger;
