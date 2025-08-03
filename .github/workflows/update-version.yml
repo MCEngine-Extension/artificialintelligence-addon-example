@@ -19,7 +19,7 @@ jobs:
       USER_GITHUB_TOKEN: ${{ secrets.USER_GITHUB_TOKEN }}
   create-release:
     needs: deps-update-for-mcengine
-    uses: MCEngine-Action/gradle/.github/workflows/create-release-with-jar.yml@master
+    uses: MCEngine-Action/gradle/.github/workflows/create-release-extension-with-jar.yml@master
     with:
       repo-name: ${{ github.repository }}
     secrets:
