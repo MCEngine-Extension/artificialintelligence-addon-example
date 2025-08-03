@@ -68,7 +68,6 @@ dependencies {
 }
 
 shadowJar {
-    version = version
     archiveClassifier = null
     archiveBaseName = project.jarName
 }
