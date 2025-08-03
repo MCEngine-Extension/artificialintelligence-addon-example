@@ -1,4 +1,4 @@
-package io.github.mcengine.addon.example.listener;
+package io.github.mcengine.addon.example;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
