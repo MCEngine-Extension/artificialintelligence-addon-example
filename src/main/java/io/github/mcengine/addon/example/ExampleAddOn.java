@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * Main class for the ExampleAddOn.
  * <p>
- * Registers the /exampleaddon command and event listeners.
+ * Registers the /aiaddonexample command and event listeners.
  */
 public class ExampleAddOn implements IMCEngineArtificialIntelligenceAddOn {
 
@@ -45,21 +45,21 @@ public class ExampleAddOn implements IMCEngineArtificialIntelligenceAddOn {
             commandMapField.setAccessible(true);
             CommandMap commandMap = (CommandMap) commandMapField.get(Bukkit.getServer());
 
-            // Define the /exampleaddon command
-            Command exampleAddOnCommand = new Command("exampleaddon") {
+            // Define the /aiaddonexample command
+            Command aiAddonExampleCommand = new Command("aiaddonexample") {
 
                 /**
-                 * Handles logic for /exampleaddon command.
+                 * Handles logic for /aiaddonexample command.
                  */
-                private final AddOnCommand handler = new AddOnCommand();
+                private final AddOnCommand handler = new AddOnCommand(); // Handles command execution.
 
                 /**
-                 * Provides tab-completion for /exampleaddon.
+                 * Provides tab-completion for /aiaddonexample.
                  */
-                private final AddOnTabCompleter completer = new AddOnTabCompleter();
+                private final AddOnTabCompleter completer = new AddOnTabCompleter(); // Handles tab-completion.
 
                 /**
-                 * Executes the /exampleaddon command.
+                 * Executes the /aiaddonexample command.
                  *
                  * @param sender The command sender.
                  * @param label  The command label.
@@ -72,7 +72,7 @@ public class ExampleAddOn implements IMCEngineArtificialIntelligenceAddOn {
                 }
 
                 /**
-                 * Handles tab-completion for the /exampleaddon command.
+                 * Handles tab-completion for the /aiaddonexample command.
                  *
                  * @param sender The command sender.
                  * @param alias  The alias used.
@@ -85,11 +85,11 @@ public class ExampleAddOn implements IMCEngineArtificialIntelligenceAddOn {
                 }
             };
 
-            exampleAddOnCommand.setDescription("Example AddOn command.");
-            exampleAddOnCommand.setUsage("/exampleaddon");
+            aiAddonExampleCommand.setDescription("AI AddOn example command.");
+            aiAddonExampleCommand.setUsage("/aiaddonexample");
 
-            // Dynamically register the /exampleaddon command
-            commandMap.register(plugin.getName().toLowerCase(), exampleAddOnCommand);
+            // Dynamically register the /aiaddonexample command
+            commandMap.register(plugin.getName().toLowerCase(), aiAddonExampleCommand);
 
             logger.info("Enabled successfully.");
         } catch (Exception e) {
