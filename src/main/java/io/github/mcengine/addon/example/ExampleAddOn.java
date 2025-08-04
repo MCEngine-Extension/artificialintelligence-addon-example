@@ -47,6 +47,7 @@ public class ExampleAddOn implements IMCEngineArtificialIntelligenceAddOn {
 
             // Define the /exampleaddon command
             Command exampleAddOnCommand = new Command("exampleaddon") {
+
                 /**
                  * Handles logic for /exampleaddon command.
                  */

@@ -13,20 +13,37 @@ import org.bukkit.plugin.Plugin;
  * Example event listener for ExampleAddOn.
  */
 public class AddOnListener implements Listener {
+
+    /**
+     * Plugin instance used by this listener.
+     */
     private final Plugin plugin;
 
+    /**
+     * Constructor for the AddOnListener.
+     *
+     * @param plugin The plugin instance.
+     */
     public AddOnListener(Plugin plugin) {
         this.plugin = plugin;
-        // Register the listener
-        Bukkit.getPluginManager().registerEvents(this, plugin);
     }
 
+    /**
+     * Handles player join event and sends a welcome message.
+     *
+     * @param event The player join event.
+     */
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
         player.sendMessage(ChatColor.AQUA + "[AddOn] Hello " + player.getName() + ", enjoy your time!");
     }
 
+    /**
+     * Handles player quit event and logs the departure.
+     *
+     * @param event The player quit event.
+     */
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent event) {
         Player player = event.getPlayer();
