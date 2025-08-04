@@ -13,14 +13,6 @@ ext {
 version = project.properties[project.name + '.version']
 group = 'io.github.mcengine'
 
-ext {
-    user_git_name = System.getenv('USER_GIT_NAME')
-    user_github_token = System.getenv('USER_GITHUB_TOKEN')
-
-    /* Project Information */
-    jarName = System.getenv('PROJECT_NAME') ?: 'Example-AddOn'
-}
-
 allprojects {
     group = 'io.github.mcengine'
 
