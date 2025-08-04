@@ -36,7 +36,7 @@ public class AddOnListener implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-        player.sendMessage(ChatColor.AQUA + "[AddOn] Hello " + player.getName() + ", enjoy your time!");
+        player.sendMessage(ChatColor.AQUA + "[AddOn][artificialintelligence-addon-example] Hello " + player.getName() + ", enjoy your time!");
     }
 
     /**
@@ -47,6 +47,6 @@ public class AddOnListener implements Listener {
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent event) {
         Player player = event.getPlayer();
-        Bukkit.getLogger().info("[AddOn] " + player.getName() + " has left the server.");
+        Bukkit.getLogger().info("[AddOn][artificialintelligence-addon-example] " + player.getName() + " has left the server.");
     }
 }
