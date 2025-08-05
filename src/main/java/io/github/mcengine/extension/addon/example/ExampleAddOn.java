@@ -33,6 +33,9 @@ public class ExampleAddOn implements IMCEngineArtificialIntelligenceAddOn {
      */
     @Override
     public void onLoad(Plugin plugin) {
+        /**
+         * Logger instance for the AddOn.
+         */
         MCEngineExtensionLogger logger = new MCEngineExtensionLogger(plugin, "AddOn", "ArtificialIntelligenceExampleAddon");
 
         try {
@@ -49,14 +52,14 @@ public class ExampleAddOn implements IMCEngineArtificialIntelligenceAddOn {
             Command aiAddonExampleCommand = new Command("aiaddonexample") {
 
                 /**
-                 * Handles logic for /aiaddonexample command.
+                 * Handles command execution for /aiaddonexample.
                  */
-                private final AddOnCommand handler = new AddOnCommand(); // Handles command execution.
+                private final AddOnCommand handler = new AddOnCommand();
 
                 /**
-                 * Provides tab-completion for /aiaddonexample.
+                 * Handles tab-completion for /aiaddonexample.
                  */
-                private final AddOnTabCompleter completer = new AddOnTabCompleter(); // Handles tab-completion.
+                private final AddOnTabCompleter completer = new AddOnTabCompleter();
 
                 /**
                  * Executes the /aiaddonexample command.
