@@ -1,12 +1,12 @@
-package io.github.mcengine.addon.example;
+package io.github.mcengine.extension.addon.example;
 
 import io.github.mcengine.api.core.MCEngineCoreApi;
 import io.github.mcengine.api.core.extension.logger.MCEngineExtensionLogger;
 import io.github.mcengine.api.artificialintelligence.extension.addon.IMCEngineArtificialIntelligenceAddOn;
 
-import io.github.mcengine.addon.example.AddOnCommand;
-import io.github.mcengine.addon.example.AddOnListener;
-import io.github.mcengine.addon.example.AddOnTabCompleter;
+import io.github.mcengine.extension.addon.example.AddOnCommand;
+import io.github.mcengine.extension.addon.example.AddOnListener;
+import io.github.mcengine.extension.addon.example.AddOnTabCompleter;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
