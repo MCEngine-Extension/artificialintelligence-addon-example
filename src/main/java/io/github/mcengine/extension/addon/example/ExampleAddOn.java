@@ -39,9 +39,9 @@ public class ExampleAddOn implements IMCEngineArtificialIntelligenceAddOn {
         MCEngineExtensionLogger logger = new MCEngineExtensionLogger(plugin, "AddOn", "ArtificialIntelligenceExampleAddon");
 
         try {
-            // Register event listener
+            // Register event listener (inject the custom logger)
             PluginManager pluginManager = Bukkit.getPluginManager();
-            pluginManager.registerEvents(new AddOnListener(plugin), plugin);
+            pluginManager.registerEvents(new AddOnListener(plugin, logger), plugin);
 
             // Reflectively access Bukkit's CommandMap
             Field commandMapField = Bukkit.getServer().getClass().getDeclaredField("commandMap");

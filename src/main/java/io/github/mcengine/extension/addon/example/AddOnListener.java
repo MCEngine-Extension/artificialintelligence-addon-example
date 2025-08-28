@@ -1,6 +1,6 @@
 package io.github.mcengine.extension.addon.example;
 
-import org.bukkit.Bukkit;
+import io.github.mcengine.api.core.extension.logger.MCEngineExtensionLogger;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
@@ -20,12 +20,19 @@ public class AddOnListener implements Listener {
     private final Plugin plugin;
 
     /**
+     * Custom extension logger for this listener, with contextual labeling.
+     */
+    private final MCEngineExtensionLogger logger;
+
+    /**
      * Constructor for the AddOnListener.
      *
      * @param plugin The plugin instance.
+     * @param logger The custom extension logger instance.
      */
-    public AddOnListener(Plugin plugin) {
+    public AddOnListener(Plugin plugin, MCEngineExtensionLogger logger) {
         this.plugin = plugin;
+        this.logger = logger;
     }
 
     /**
@@ -47,6 +54,6 @@ public class AddOnListener implements Listener {
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent event) {
         Player player = event.getPlayer();
-        Bukkit.getLogger().info("[AddOn][artificialintelligence-addon-example] " + player.getName() + " has left the server.");
+        logger.info(player.getName() + " has left the server.");
     }
 }
