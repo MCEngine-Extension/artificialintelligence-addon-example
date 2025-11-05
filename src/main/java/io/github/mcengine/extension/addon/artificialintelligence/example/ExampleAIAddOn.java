@@ -23,7 +23,7 @@ import java.util.List;
  * <p>
  * Registers the /aiaddonexample command and event listeners.
  */
-public class ExampleAddOn implements IMCEngineArtificialIntelligenceAddOn {
+public class ExampleAIAddOn implements IMCEngineArtificialIntelligenceAddOn {
 
     /**
      * Initializes the ExampleAddOn.
